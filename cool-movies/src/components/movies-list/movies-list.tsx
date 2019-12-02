@@ -5,9 +5,9 @@ import './movies-list.scss';
 
 export const MoviesList: FC = () => {
     const moviesApi = new MoviesAPI();
-    const [ movies, setMovies ] = useState([]);
+    const [ movies, setMovies ] = useState<Movie[]>([]);
     moviesApi
         .getTopMoviesByPage(1)
-        .then(res => setMovies(res as any));
+        .then(res => setMovies(res));
     return <div>{JSON.stringify(movies)}</div>;
 }
