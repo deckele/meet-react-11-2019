@@ -1,13 +1,25 @@
-import React, { FC, useState } from 'react';
+import React, { FC, useState, useEffect } from 'react';
 import { Movie } from '../../contracts';
-import { MoviesAPI } from '../../services/movies-api';
+import { useMovies } from '../../services/movies-api';
 import './movies-list.scss';
+import { MoviesListItem } from './movies-list-item/movies-list-item';
 
 export const MoviesList: FC = () => {
-    const moviesApi = new MoviesAPI();
-    const [ movies, setMovies ] = useState<Movie[]>([]);
-    moviesApi
-        .getTopMoviesByPage(1)
-        .then(res => setMovies(res));
-    return <div>{JSON.stringify(movies)}</div>;
+    const { movies, page, setPage } = useMovies();
+    function handlePageChanged(e: React.ChangeEvent<HTMLInputElement>) {
+        const value = e.target.value;
+        setPage(Number.parseInt(value));
+    }
+    return (
+        <>
+            <input 
+                onChange={handlePageChanged} 
+                type="number"
+                value={page}
+            />
+            <ul className="movies-list">
+                {movies.map(movie => <MoviesListItem movie={movie} />)}
+            </ul>
+        </>
+    );
 }
