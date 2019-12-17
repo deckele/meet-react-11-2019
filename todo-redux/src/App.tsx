@@ -6,7 +6,7 @@ const App: React.FC = () => {
   return (
     <div className="app">
       <header>
-        <h1>Todo App!</h1>
+        <h1 className="todos-title">Todo App!</h1>
       </header>
       <TodosList></TodosList>
     </div>
