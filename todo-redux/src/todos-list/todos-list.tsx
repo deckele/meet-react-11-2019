@@ -5,7 +5,7 @@ import { useSelector } from "react-redux";
 import "./todos-list.scss";
 
 export const TodosList = () => {
-    const todos = useSelector<AppState, Todo[]>(state => state.todos);
+    const todos = useSelector<AppState, Todo[]>(state => state.todosState.todos);
     return (
         <ul className="todos-list">
             {todos.map(todo => <TodosListItem key={todo.id} {...todo} />)}

@@ -1,4 +1,4 @@
-import { todoConstants } from "./todo-constants";
+import { todoConstants } from "../constants/todo-constants";
 
 export function addTodoAction(description: string) {
     return {

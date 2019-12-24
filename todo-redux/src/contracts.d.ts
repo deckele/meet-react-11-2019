@@ -1,3 +1,6 @@
+import { TodosState } from "./redux/reducers/todo-reducer";
+import { CounterState } from "./redux/reducers/counter-reducer";
+
 export interface Todo {
     description: string;
     done: boolean;
@@ -5,5 +8,6 @@ export interface Todo {
 }
 
 export interface AppState {
-    todos: Todo[];
+    todosState: TodosState;
+    counterState: CounterState;
 }

@@ -2,7 +2,7 @@ import React, { FC } from "react";
 import { Todo } from "../../contracts";
 import "./todos-list-item.scss";
 import { useDispatch } from "react-redux";
-import { removeTodoAction } from "../../redux/todo-actions";
+import { removeTodoAction } from "../../redux/actions/todo-actions";
 
 interface TodosListItemProps extends Todo {
     
