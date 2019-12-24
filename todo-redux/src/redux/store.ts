@@ -1,18 +1,6 @@
-import { createStore, Reducer } from "redux";
-import { Todo } from "../contracts";
+import { createStore, applyMiddleware } from "redux";
+import { rootReducer } from "./reducer";
+import logger from 'redux-logger';
 
-export interface AppState {
-    todos: Todo[]
-}
-const initialState: AppState = {
-    todos: [
-        {description: "task1", done: false},
-        {description: "task2", done: false}
-    ]
-}
-
-const rootReducer: Reducer<AppState> = (state = initialState, action: any) => {
-    return state
-} 
-
-export const store = createStore(rootReducer);
+const middleware = applyMiddleware(logger);
+export const store = createStore(rootReducer, middleware);
