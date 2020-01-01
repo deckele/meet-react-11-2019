@@ -27,7 +27,6 @@ const Topics = () => {
 
 const TopicWithResources = () => {
   const match = useRouteMatch();
-  console.log(match);
   const { topicId } = useParams<any>();
   const topic = topics.find(topic => topic.id === topicId);
   if (!topic) {
